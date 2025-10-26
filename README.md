@@ -176,6 +176,7 @@ Terdapat **36 fitur** meliputi:
 
 ### Exploratory Data Analysis (EDA)
 - Statistika Deskriptif Numerik <br>
+![Boxplot](https://github.com/andraekaaaa-beep/Analisis-Prediksi-Probabilitas-Attrition-SML-A/blob/main/image/boxplot%20outlier.png?raw=true)
 Dataset ini mencerminkan profil 1176 karyawan dari sebuah perusahaan. Karyawan memiliki usia rata-rata 37 tahun dan sebagian besar memiliki Job Level 1 hingga 3 (ditunjukkan oleh nilai kuartil). Mereka memiliki pengalaman kerja rata-rata sekitar 11.4 tahun dan telah bekerja di perusahaan ini selama sekitar 7 tahun.
 Aktivitas kerja harian menunjukkan rata-rata Daily Rate (gaji harian) sekitar 804 dan rata-rata Hourly Rate (gaji per jam) sekitar 65. Meskipun sebagian besar karyawan berada pada Job Involvement level 3, ada variasi dalam Work-Life Balance (rata-rata 2.75 dari skala 1 hingga 4).
 Rata-rata jarak tempuh ke rumah (DistanceFromHome) adalah 9.4 unit, namun ada juga karyawan yang tinggal hingga 29 unit jauhnya. Karyawan menghabiskan rata-rata 11.4 tahun bekerja secara total dan 4.2 tahun dalam peran saat ini, menunjukkan stabilitas manajer yang cukup baik dengan rata-rata 4.2 tahun bekerja dengan manajer saat ini.
