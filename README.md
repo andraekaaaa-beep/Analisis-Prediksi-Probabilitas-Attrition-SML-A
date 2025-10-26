@@ -176,22 +176,144 @@ Terdapat **36 fitur** meliputi:
 
 ### Exploratory Data Analysis (EDA)
 - Statistika Deskriptif Numerik <br>
-![Boxplot](https://github.com/andraekaaaa-beep/Analisis-Prediksi-Probabilitas-Attrition-SML-A/blob/main/image/boxplot%20outlier.png?raw=true)
-Dataset ini mencerminkan profil 1176 karyawan dari sebuah perusahaan. Karyawan memiliki usia rata-rata 37 tahun dan sebagian besar memiliki Job Level 1 hingga 3 (ditunjukkan oleh nilai kuartil). Mereka memiliki pengalaman kerja rata-rata sekitar 11.4 tahun dan telah bekerja di perusahaan ini selama sekitar 7 tahun.
-Aktivitas kerja harian menunjukkan rata-rata Daily Rate (gaji harian) sekitar 804 dan rata-rata Hourly Rate (gaji per jam) sekitar 65. Meskipun sebagian besar karyawan berada pada Job Involvement level 3, ada variasi dalam Work-Life Balance (rata-rata 2.75 dari skala 1 hingga 4).
-Rata-rata jarak tempuh ke rumah (DistanceFromHome) adalah 9.4 unit, namun ada juga karyawan yang tinggal hingga 29 unit jauhnya. Karyawan menghabiskan rata-rata 11.4 tahun bekerja secara total dan 4.2 tahun dalam peran saat ini, menunjukkan stabilitas manajer yang cukup baik dengan rata-rata 4.2 tahun bekerja dengan manajer saat ini.
-Meskipun rata-rata hanya 2 kali menerima pelatihan tahun lalu, ada yang menerima hingga 6 kali. Rata-rata tingkat attrition (berhenti bekerja) pada dataset ini adalah 16.2%, dengan standar deviasi yang cukup tinggi (0.36), menunjukkan variasi signifikan dalam kecenderungan karyawan untuk keluar. Terdapat variasi dalam pengalaman kerja, kompensasi, dan keseimbangan hidup, yang merupakan faktor penting untuk prediksi attrition karyawan. <br>
+## Statistik Deskriptif Dataset Karyawan
 
-- Statistika Deskriptif Kategorikal <br>
-Karyawan yang keluar cenderung memiliki usia rata-rata yang lebih muda dibandingkan karyawan yang bertahan. Mereka memiliki gaji bulanan yang jauh lebih rendah (rata-rata 4843 vs. 6871) dan juga menerima Daily Rate yang lebih rendah (738 vs. 816). Mereka juga rata-rata memiliki Total Working Years dan Years At Company yang lebih singkat (masing-masing 8.05 tahun dan 4.9 tahun) dibandingkan rekan kerja yang bertahan (12.0 tahun dan 7.4 tahun).
+| Statistik | Age | DailyRate | DistanceFromHome | Education | EmployeeCount | EmployeeNumber | EnvironmentSatisfaction | HourlyRate | JobInvolvement | JobLevel | ... | StandardHours | StockOptionLevel | TotalWorkingYears | TrainingTimesLastYear | WorkLifeBalance | YearsAtCompany | YearsInCurrentRole | YearsSinceLastPromotion | YearsWithCurrManager | Attrition |
+|:-----------|:------:|:-----------:|:----------------:|:----------:|:--------------:|:----------------:|:--------------------------:|:-----------:|:---------------:|:-----------:|:---:|:---------------:|:------------------:|:----------------:|:---------------------:|:----------------:|:----------------:|:-------------------:|:--------------------------:|:---------------------:|:----------:|
+| **count** | 1176.000 | 1176.000 | 1176.000 | 1176.000 | 1176.0 | 1176.000 | 1176.000 | 1176.000 | 1176.000 | 1176.000 | ... | 1176.0 | 1176.000 | 1176.000 | 1176.000 | 1176.000 | 1176.000 | 1176.000 | 1176.000 | 1176.000 | 1176.000 |
+| **mean** | 36.998 | 803.991 | 9.358 | 2.906 | 1.0 | 1015.831 | 2.717 | 65.500 | 2.737 | 2.077 | ... | 80.0 | 0.791 | 11.365 | 2.760 | 2.758 | 7.050 | 4.231 | 2.183 | 4.196 | 0.162 |
+| **std** | 9.178 | 401.339 | 8.180 | 1.028 | 0.0 | 599.657 | 1.089 | 20.373 | 0.704 | 1.092 | ... | 0.0 | 0.846 | 7.801 | 1.256 | 0.718 | 6.087 | 3.570 | 3.215 | 3.565 | 0.368 |
+| **min** | 18.000 | 103.000 | 1.000 | 1.000 | 1.0 | 1.000 | 1.000 | 30.000 | 1.000 | 1.000 | ... | 80.0 | 0.000 | 0.000 | 0.000 | 1.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| **25%** | 30.000 | 467.750 | 2.000 | 2.000 | 1.0 | 487.750 | 2.000 | 48.000 | 2.000 | 1.000 | ... | 80.0 | 0.000 | 6.000 | 2.000 | 2.000 | 3.000 | 2.000 | 0.000 | 2.000 | 0.000 |
+| **50%** | 36.000 | 799.500 | 7.000 | 3.000 | 1.0 | 1004.500 | 3.000 | 66.000 | 3.000 | 2.000 | ... | 80.0 | 1.000 | 10.000 | 3.000 | 3.000 | 5.000 | 3.000 | 1.000 | 3.000 | 0.000 |
+| **75%** | 43.000 | 1157.000 | 14.000 | 4.000 | 1.0 | 1547.250 | 4.000 | 83.000 | 3.000 | 3.000 | ... | 80.0 | 1.000 | 15.000 | 3.000 | 3.000 | 10.000 | 7.000 | 3.000 | 7.000 | 0.000 |
+| **max** | 60.000 | 1499.000 | 29.000 | 5.000 | 1.0 | 2062.000 | 4.000 | 100.000 | 4.000 | 5.000 | ... | 80.0 | 3.000 | 40.000 | 6.000 | 4.000 | 37.000 | 17.000 | 15.000 | 17.000 | 1.000 |
+
+Dataset ini mencerminkan profil 1176 karyawan dari sebuah perusahaan. Karyawan memiliki usia rata-rata 37 tahun dan sebagian besar memiliki Job Level 1 hingga 3 (ditunjukkan oleh nilai kuartil). Mereka memiliki pengalaman kerja rata-rata sekitar 11.4 tahun dan telah bekerja di perusahaan ini selama sekitar 7 tahun. Aktivitas kerja harian menunjukkan rata-rata Daily Rate (gaji harian) sekitar 804 dan rata-rata Hourly Rate (gaji per jam) sekitar 65. Meskipun sebagian besar karyawan berada pada Job Involvement level 3, ada variasi dalam Work-Life Balance (rata-rata 2.75 dari skala 1 hingga 4). Rata-rata jarak tempuh ke rumah (DistanceFromHome) adalah 9.4 unit, namun ada juga karyawan yang tinggal hingga 29 unit jauhnya. Karyawan menghabiskan rata-rata 11.4 tahun bekerja secara total dan 4.2 tahun dalam peran saat ini, menunjukkan stabilitas manajer yang cukup baik dengan rata-rata 4.2 tahun bekerja dengan manajer saat ini. Meskipun rata-rata hanya 2 kali menerima pelatihan tahun lalu, ada yang menerima hingga 6 kali. Rata-rata tingkat attrition (berhenti bekerja) pada dataset ini adalah 16.2%, dengan standar deviasi yang cukup tinggi (0.36), menunjukkan variasi signifikan dalam kecenderungan karyawan untuk keluar. Terdapat variasi dalam pengalaman kerja, kompensasi, dan keseimbangan hidup, yang merupakan faktor penting untuk prediksi attrition karyawan. <br>
+
+- **Statistika Deskriptif Kategorikal** <br>
+## Description of Categorical Variables
+
+### **id**
+| ID | Count |
+|:------|------:|
+| WA862 | 2 |
+| TP136 | 2 |
+| BN287 | 2 |
+| UF013 | 1 |
+| BR784 | 1 |
+| ... | ... |
+| XI719 | 1 |
+| AW894 | 1 |
+| FE054 | 1 |
+| DJ187 | 1 |
+| OI063 | 1 |
+| **Total Unique IDs** | **1173** |
+
+---
+
+### **BusinessTravel**
+| Category | Count |
+|:------------------|------:|
+| Travel_Rarely | 828 |
+| Travel_Frequently | 225 |
+| Non-Travel | 123 |
+
+---
+
+### **Department**
+| Department | Count |
+|:-------------------------|------:|
+| Research & Development | 764 |
+| Sales | 364 |
+| Human Resources | 48 |
+
+---
+
+### **EducationField**
+| Education Field | Count |
+|:----------------------|------:|
+| Life Sciences | 479 |
+| Medical | 364 |
+| Marketing | 134 |
+| Technical Degree | 115 |
+| Other | 62 |
+| Human Resources | 22 |
+
+---
+
+### **Gender**
+| Gender | Count |
+|:--------|------:|
+| Male | 704 |
+| Female | 472 |
+
+---
+
+### **JobRole**
+| Job Role | Count |
+|:-----------------------------|------:|
+| Sales Executive | 273 |
+| Research Scientist | 220 |
+| Laboratory Technician | 215 |
+| Manufacturing Director | 113 |
+| Healthcare Representative | 108 |
+| Manager | 83 |
+| Research Director | 63 |
+| Sales Representative | 60 |
+| Human Resources | 41 |
+
+---
+
+### **MaritalStatus**
+| Marital Status | Count |
+|:---------------|------:|
+| Married | 540 |
+| Single | 373 |
+| Divorced | 263 |
+
+---
+
+### **Over18**
+| Category | Count |
+|:----------|------:|
+| Y | 1176 |
+
+---
+
+### **OverTime**
+| Category | Count |
+|:----------|------:|
+| No | 836 |
+| Yes | 340 |
+
+Karyawan yang keluar cenderung memiliki usia rata-rata yang lebih muda dibandingkan karyawan yang bertahan. Mereka memiliki gaji bulanan yang jauh lebih rendah (rata-rata 4843 vs. 6871) dan juga menerima Daily Rate yang lebih rendah (738 vs. 816). Mereka juga rata-rata memiliki Total Working Years dan Years At Company yang lebih singkat (masing-masing 8.05 tahun dan 4.9 tahun) dibandingkan rekan kerja yang bertahan (12.0 tahun dan 7.4 tahun). <br> <br>
 Dalam hal komitmen dan kepuasan kerja, karyawan yang Keluar menunjukkan beberapa tanda risiko: <br>
 Job Level mereka cenderung lebih rendah (1.66 vs. 2.15). <br>
 Memiliki tingkat Environment Satisfaction, Job Satisfaction, dan Work-Life Balance yang sedikit lebih rendah. <br>
 Rata-rata bekerja di lebih banyak perusahaan (2.96), menunjukkan kecenderungan job hopping yang lebih tinggi. <br>
-Memiliki Years With Current Manager yang jauh lebih singkat (2.8 tahun) dibandingkan karyawan yang bertahan (4.4 tahun), menandakan hubungan manajerial yang kurang stabil.
+Memiliki Years With Current Manager yang jauh lebih singkat (2.8 tahun) dibandingkan karyawan yang bertahan (4.4 tahun), menandakan hubungan manajerial yang kurang stabil. <br> <br>
 Secara umum, karyawan yang Keluar menunjukkan profil yang lebih muda, berstatus kompensasi dan jabatan lebih rendah, serta memiliki tingkat kepuasan kerja dan stabilitas manajerial yang lebih pasif dibandingkan rekan kerja yang memilih untuk tetap bertahan. Pola ini sangat konsisten dengan risiko tinggi attrition pada karyawan yang lebih baru dan memiliki komitmen finansial/karir yang lebih rendah. <br>
 
-- Missing Value dan Outlier <br>
+- **Missing Value dan Outlier** <br>
+## Total Outliers per Feature (Based on IQR)
+
+| Feature | Number of Outliers |
+|:---------------------------|------------------:|
+| MonthlyIncome | 86 |
+| NumCompaniesWorked | 36 |
+| PerformanceRating | 185 |
+| StockOptionLevel | 66 |
+| TotalWorkingYears | 52 |
+| TrainingTimesLastYear | 174 |
+| YearsAtCompany | 52 |
+| YearsInCurrentRole | 16 |
+| YearsSinceLastPromotion | 85 |
+| YearsWithCurrManager | 10 |
+| Attrition | 190 |
+
+---
+
 Kemudian, dilakukan deteksi outlier menggunakan metode Interquartile Range (IQR) untuk setiap fitur numerik. Hasil analisis menunjukkan bahwa beberapa variabel yang berkaitan dengan rating dan riwayat pelatihan memiliki jumlah outlier yang sangat signifikan : <br>
 1. PerformanceRating menunjukkan jumlah outlier tertinggi (185 outlier), mengindikasikan adanya evaluasi kinerja yang ekstrem (sangat tinggi atau sangat rendah). <br>
 2. TrainingTimesLastYear juga memiliki jumlah outlier yang tinggi (174 outlier), menunjukkan adanya variasi ekstrem dalam frekuensi pelatihan yang diikuti karyawan. <br>
@@ -202,6 +324,7 @@ MonthlyIncome (86 outlier), dan
 StockOptionLevel (66 outlier).
 Sementara itu, variabel yang berkaitan dengan stabilitas kerja, seperti YearsWithCurrManager (10 outlier) dan YearsInCurrentRole (16 outlier), memiliki jumlah outlier terendah di antara fitur-fitur yang terdeteksi, menandakan distribusi nilai yang relatif stabil untuk fitur-fitur yang mengukur komitmen peran dan manajerial saat ini. <br>
 
+![Boxplot](https://github.com/andraekaaaa-beep/Analisis-Prediksi-Probabilitas-Attrition-SML-A/blob/main/image/boxplot%20outlier.png?raw=true) 
 Visualisasi melalui boxplot semakin memperjelas sebaran data dan keberadaan outlier di setiap fitur. Fitur seperti MonthlyIncome, TotalWorkingYears, dan YearsAtCompany tampak memiliki sebaran yang lebar dengan banyak data berada di luar whisker (batas IQR), yang mengindikasikan variasi nilai ekstrim dalam kompensasi dan riwayat kerja.
 MonthlyIncome menunjukkan outlier yang signifikan pada kuartil atas, menandakan adanya segmen karyawan dengan gaji yang jauh lebih tinggi dari rata-rata.
 TotalWorkingYears dan YearsAtCompany memiliki banyak outlier pada nilai yang tinggi (di atas 30 tahun), menunjukkan adanya veteran perusahaan dalam jumlah yang substansial.
@@ -211,6 +334,7 @@ Meskipun demikian, outlier tidak dihapus dari dataset. Hal ini dilakukan untuk m
 Menghilangkan outlier justru berisiko menghilangkan pola penting dalam konteks analisis attrition karyawan. Sebagai langkah mitigasi terhadap pengaruh outlier, model machine learning yang digunakan adalah model berbasis tree (XGBoost, LightGBM, Random Forest), sehingga lebih robust terhadap outlier karena keputusan split didasarkan pada ambang batas (nilai kuartil) dan bukan pada nilai absolut atau jarak rata-rata.
 
 - Heatmap Variabel <br>
+
 1. Age memiliki korelasi positif tinggi dengan TotalWorkingYears (0.69) dan MonthlyIncome (0.52), menunjukkan bahwa semakin lama pengalaman kerja seseorang, umumnya semakin tua dan pendapatannya lebih tinggi. <br>
 2. JobLevel juga berkorelasi kuat dengan MonthlyIncome (0.95) dan TotalWorkingYears (0.77), menandakan bahwa karyawan dengan level jabatan lebih tinggi cenderung memiliki pengalaman dan pendapatan yang lebih besar. <br>
 3. YearsAtCompany, YearsInCurrentRole, dan YearsWithCurrManager menunjukkan korelasi positif yang kuat (≥0.6), mengindikasikan bahwa lama bekerja dalam satu posisi biasanya sejalan dengan lamanya masa kerja dan hubungan dengan manajer yang sama. <br>
