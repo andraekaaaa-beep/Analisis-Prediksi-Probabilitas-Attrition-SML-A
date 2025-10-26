@@ -1,3 +1,0 @@
-git add images/myimage.png
-git commit -m "Add image"
-git push
