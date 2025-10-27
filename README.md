@@ -963,8 +963,9 @@ Dengan Confusion Matrix di atas:
 ## Kesimpulan <br>
 - LightGBM menjadi model dengan performa paling konsisten (CV AUC tertinggi) dan memberikan kontribusi utama dalam ensemble. <br>
 - Ensemble Voting (XGB + LGBM + RF) meningkatkan stabilitas prediksi dengan menjaga keseimbangan antara akurasi dan interpretabilitas. <br>
-- Model menunjukkan akurasi tinggi (86%) namun recall rendah (18%), yang berarti masih cenderung lebih baik dalam mendeteksi karyawan yang bertahan daripada yang akan keluar. <br>
-Untuk peningkatan ke depan, perlu dilakukan: <br>
+- Model menunjukkan akurasi tinggi (86%) namun recall rendah (18%), yang berarti masih cenderung lebih baik dalam mendeteksi karyawan yang bertahan daripada yang akan keluar. <br> <br>
+
+Disarankan untuk peningkatan analisis selanjutnya, perlu dilakukan: <br>
 1. Oversampling/undersampling yang lebih halus (misalnya SMOTE Tomek Links). <br>
 2. Penyesuaian threshold probabilitas untuk meningkatkan recall. <br>
 3. Penambahan fitur perilaku dan engagement karyawan agar model lebih sensitif terhadap sinyal keluar. <br>
