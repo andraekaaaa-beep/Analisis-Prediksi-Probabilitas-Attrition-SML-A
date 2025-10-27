@@ -22,13 +22,13 @@ Departemen Statistika, Institut Teknologi Sepuluh Nopember (ITS)
   - [Deskripsi Fitur](#deskripsi-fitur)
   - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
 - [Modeling & Evaluation](#modeling--evaluation)
-- [Financial Result](#financial--result)
+- [Business Result](#business--result)
 - [Kesimpulan](#kesimpulan)
 
 ---
 
-## Domain Proyek: Sumber Daya Manusia (HR)
-![hook](https://github.com/andraekaaaa-beep/Analisis-Prediksi-Probabilitas-Attrition-SML-A/blob/main/image/employee-attrition.jpg?raw-true)
+## Domain Proyek: Sumber Daya Manusia (HR) <br>
+![hook](https://github.com/andraekaaaa-beep/Analisis-Prediksi-Probabilitas-Attrition-SML-A/blob/main/image/employee-attrition.jpg?raw-true) <br>
 Manajemen sumber daya manusia merupakan salah satu pilar utama dalam menjaga keberlanjutan dan daya saing sebuah perusahaan di era bisnis modern. Salah satu tantangan terbesar yang dihadapi organisasi adalah tingginya tingkat attrition atau employee turnover, yaitu kondisi ketika karyawan meninggalkan perusahaan baik secara sukarela maupun tidak. Fenomena ini menimbulkan berbagai konsekuensi, seperti meningkatnya biaya rekrutmen dan pelatihan, menurunnya produktivitas tim, serta terganggunya stabilitas operasional dan moral kerja di lingkungan perusahaan [1]. <br> <br>
 Beragam faktor dapat memengaruhi keputusan seorang karyawan untuk bertahan atau keluar, mulai dari karakteristik demografis, posisi jabatan, tingkat kepuasan kerja, beban kerja, hingga frekuensi lembur [2]. Pemahaman mendalam terhadap faktor-faktor ini memungkinkan perusahaan untuk mengambil langkah strategis dalam mempertahankan talenta terbaik, meningkatkan kesejahteraan karyawan, serta menciptakan lingkungan kerja yang lebih sehat dan produktif.
 Proyek ini berada dalam domain People Analytics dan Human Resource Management (HRM), dengan fokus pada pengembangan model prediktif untuk mempelajari dan memprediksi perilaku employee attrition. Melalui pemanfaatan teknik data science dan machine learning, proyek ini bertujuan untuk: <br>
@@ -960,8 +960,16 @@ Dengan Confusion Matrix di atas:
 > ⚠️ Artinya, meskipun model membantu mendeteksi sebagian besar karyawan yang akan keluar, biaya retensi terhadap terlalu banyak *false positives* masih menyebabkan kerugian bersih.  
 > Dengan penyesuaian ambang probabilitas (threshold) agar fokus pada karyawan dengan risiko tertinggi, potensi kerugian ini dapat berbalik menjadi keuntungan bersih.
 
-## Kesimpulan
+## Kesimpulan <br>
+- LightGBM menjadi model dengan performa paling konsisten (CV AUC tertinggi) dan memberikan kontribusi utama dalam ensemble. <br>
+- Ensemble Voting (XGB + LGBM + RF) meningkatkan stabilitas prediksi dengan menjaga keseimbangan antara akurasi dan interpretabilitas. <br>
+- Model menunjukkan akurasi tinggi (86%) namun recall rendah (18%), yang berarti masih cenderung lebih baik dalam mendeteksi karyawan yang bertahan daripada yang akan keluar. <br>
+Untuk peningkatan ke depan, perlu dilakukan: <br>
+1. Oversampling/undersampling yang lebih halus (misalnya SMOTE Tomek Links). <br>
+2. Penyesuaian threshold probabilitas untuk meningkatkan recall. <br>
+3. Penambahan fitur perilaku dan engagement karyawan agar model lebih sensitif terhadap sinyal keluar. <br>
 
+Model ensemble menunjukkan kinerja yang stabil dan seimbang, terutama dalam mengenali karyawan yang tetap bertahan dengan tingkat kesalahan sangat rendah. Namun, recall yang rendah menunjukkan bahwa model masih berhati-hati dalam mendeteksi karyawan yang berpotensi keluar, kemungkinan akibat ketidakseimbangan kelas pada data. Model ensemble (LightGBM + XGBoost) yang telah dikalibrasi menghasilkan skor AUC 82.348% pada leaderboard Kaggle, yang menunjukkan bahwa pendekatan kombinasi model ini berhasil meningkatkan generalisasi dibandingkan model lain yang telah dicoba.
 
 ---
 
