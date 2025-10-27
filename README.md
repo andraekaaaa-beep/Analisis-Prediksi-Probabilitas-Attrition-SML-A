@@ -28,6 +28,7 @@ Departemen Statistika, Institut Teknologi Sepuluh Nopember (ITS)
 ---
 
 ## Domain Proyek: Sumber Daya Manusia (HR)
+![hook](https://github.com/andraekaaaa-beep/Analisis-Prediksi-Probabilitas-Attrition-SML-A/blob/main/image/employee-attrition.jpg?raw-true)
 Manajemen sumber daya manusia merupakan salah satu pilar utama dalam menjaga keberlanjutan dan daya saing sebuah perusahaan di era bisnis modern. Salah satu tantangan terbesar yang dihadapi organisasi adalah tingginya tingkat attrition atau employee turnover, yaitu kondisi ketika karyawan meninggalkan perusahaan baik secara sukarela maupun tidak. Fenomena ini menimbulkan berbagai konsekuensi, seperti meningkatnya biaya rekrutmen dan pelatihan, menurunnya produktivitas tim, serta terganggunya stabilitas operasional dan moral kerja di lingkungan perusahaan [1]. <br> <br>
 Beragam faktor dapat memengaruhi keputusan seorang karyawan untuk bertahan atau keluar, mulai dari karakteristik demografis, posisi jabatan, tingkat kepuasan kerja, beban kerja, hingga frekuensi lembur [2]. Pemahaman mendalam terhadap faktor-faktor ini memungkinkan perusahaan untuk mengambil langkah strategis dalam mempertahankan talenta terbaik, meningkatkan kesejahteraan karyawan, serta menciptakan lingkungan kerja yang lebih sehat dan produktif.
 Proyek ini berada dalam domain People Analytics dan Human Resource Management (HRM), dengan fokus pada pengembangan model prediktif untuk mempelajari dan memprediksi perilaku employee attrition. Melalui pemanfaatan teknik data science dan machine learning, proyek ini bertujuan untuk: <br>
@@ -912,7 +913,52 @@ Model memiliki **akurasi tinggi** dan **spesifisitas sangat baik**, artinya kuat
 ### Save Best Model
 filename = '../model/complete_model_package.pkl'
 
-## Financial Result
+## Business Result
+#### Estimasi Dampak Finansial Model terhadap Perusahaan (Kasus Attrition)
+
+Untuk menunjukkan nilai tambah dari model prediksi ini, dilakukan estimasi dampak finansial berdasarkan **Confusion Matrix** hasil prediksi *Attrition* (karyawan keluar atau tidak).
+
+### Confusion Matrix (Model Validation)
+
+|                      | Predicted Attrition | Predicted Stay |
+|----------------------|--------------------:|----------------:|
+| **Actual Attrition** | 7 (TP) | 1 (FN) |
+| **Actual Stay**      | 31 (FP) | 197 (TN) |
+
+### Asumsi Dasar
+- Rata-rata **biaya kehilangan karyawan (turnover cost)** adalah sekitar **30% dari gaji tahunan** (termasuk rekrutmen, pelatihan, dan kehilangan produktivitas).  Esrimasi 30% merupakan estimasi rata-rata dari biaya kehilangan karyawan menurut SHRM (Society for Human Resource Management) untuk posisi entry level
+- **Biaya retensi** (misalnya bonus, pelatihan tambahan, atau promosi) untuk mencegah karyawan keluar diasumsikan **10% dari gaji tahunan**.
+- Model digunakan untuk membantu tim HR dalam mengidentifikasi karyawan berisiko tinggi agar strategi retensi lebih efisien.
+
+### Komponen Biaya & Manfaat
+
+| Komponen | Penjelasan | Dampak Finansial |
+|-----------|-------------|------------------|
+| **True Positive (TP)** | Karyawan yang benar-benar akan keluar dan berhasil diidentifikasi oleh model → bisa ditindaklanjuti dengan program retensi. | *Manfaat:* Menghindari kehilangan 30% dari gaji tahunan. <br>  *Biaya:* Retensi 10% dari gaji. |
+| **False Negative (FN)** | Karyawan yang keluar tapi tidak terdeteksi oleh model. |  *Kerugian:* Kehilangan 30% dari gaji. |
+| **False Positive (FP)** | Karyawan yang diprediksi akan keluar tapi sebenarnya bertahan. | *Kerugian kecil:* Perusahaan mengeluarkan biaya retensi 10% tanpa perlu. |
+| **True Negative (TN)** | Karyawan yang benar-benar bertahan dan tidak perlu biaya tambahan. |  *Netral / stabil.* |
+
+### Ilustrasi Estimasi Dampak Finansial
+
+Misalkan:
+- Rata-rata gaji tahunan karyawan: **Rp120 juta**  
+- Biaya turnover: **30% × 120 juta = Rp36 juta per orang**
+- Biaya retensi: **10% × 120 juta = Rp12 juta per orang**
+
+Dengan Confusion Matrix di atas:
+
+| Komponen | Jumlah | Estimasi Dampak per Orang | Total Dampak |
+|-----------|--------|---------------------------|---------------|
+| **TP (7)** | 7 × (36 - 12) juta | = **Rp168 juta manfaat** |
+| **FP (31)** | 31 × (−12 juta) | = **−Rp372 juta** |
+| **FN (1)** | 1 × (−36 juta) | = **−Rp36 juta** |
+| **TN (197)** | Tidak berdampak | = Rp0 juta |
+
+📈 **Estimasi dampak bersih model: −Rp240 juta**
+
+> ⚠️ Artinya, meskipun model membantu mendeteksi sebagian besar karyawan yang akan keluar, biaya retensi terhadap terlalu banyak *false positives* masih menyebabkan kerugian bersih.  
+> Dengan penyesuaian ambang probabilitas (threshold) agar fokus pada karyawan dengan risiko tertinggi, potensi kerugian ini dapat berbalik menjadi keuntungan bersih.
 
 ## Kesimpulan
 
